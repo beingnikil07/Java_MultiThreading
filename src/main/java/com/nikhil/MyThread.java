@@ -2,21 +2,24 @@ package com.nikhil;
 
 public class MyThread  extends Thread{
 
+    public MyThread(String name){
+        super(name);
+    }
 
     @Override
     public void run() {
-        try{
-            Thread.sleep(100);
-            System.out.println("Thread is running ");
-        } catch(InterruptedException e) {
-            System.out.println("Thread Interrupted:"+e);
-        }
+       for(int i=0;i<5;i++){
+           System.out.println(Thread.currentThread().getName() +" is running");
+
+           //It gives the hint to JVM ,you can give chance to another thread to execute,mean koi jaldi na hai tum kisi or ko bhi chace de sakte ho
+           Thread.yield();
+       }
     }
     public static void main(String[] args)  throws InterruptedException{
-        MyThread t1=new MyThread();
+        MyThread t1=new MyThread("t1");
+        MyThread t2=new MyThread("t2");
         t1.start();
-        //interrupt() method ka matlab hai aap jo bhi krr rhe ho like sleep ,wait start ,sabko interrupt kardo band kardo sabko
-        t1.interrupt();
+        t2.start();
 
     }
 }
