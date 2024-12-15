@@ -6,12 +6,13 @@ public class Main {
 //        //By default,Main method runs under the Main Thread.Main thread is responsible for executing the main method of a program.
 //        System.out.println(Thread.currentThread().getName());
 
-
+        //Our created thread
         World obj=new World();
         obj.start();
 
+        //Main thrad
         for (; ;){
-            System.out.println("Hello");
+            System.out.println(Thread.currentThread().getName());
         }
 
     }
