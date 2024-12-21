@@ -3,6 +3,7 @@
        1. Threads acquire the lock in the order they requested it, promoting fairness but potentially reducing throughput
           due to the overhead of maintaining the queue.
 
+
         Key Characteristics of a Fair Lock:
 
         1. Thread Order: Threads are granted the lock in the order they requested it.
