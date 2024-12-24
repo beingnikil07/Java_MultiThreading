@@ -8,7 +8,7 @@ public class ScheduledExecutorServicesExample {
         // simple thread pool
         ScheduledExecutorService schedular= Executors.newScheduledThreadPool(1);
 
-        ScheduledExecutorService executor=Executors.newCachedThreadPool();
+//        ScheduledExecutorService executor=Executors.newCachedThreadPool();
 
 
 
