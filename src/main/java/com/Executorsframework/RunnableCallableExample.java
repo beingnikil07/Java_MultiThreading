@@ -6,11 +6,18 @@ public class RunnableCallableExample
 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executor= Executors.newFixedThreadPool(2);
-        Future<Integer> submit=executor.submit(()->2+2);
-        Integer i=submit.get();
-        System.out.println("Sum is :"+i);
-        executor.shutdown();
-        System.out.println(executor.isShutdown());
-        System.out.println(executor.isTerminated());
+        Future<Integer> future=executor.submit(()->{
+            try{
+                Thread.sleep(1000);
+            }catch (InterruptedException e){
+                System.out.println("Exception Occurred:"+e);
+            }
+            return 42;
+        });
+
+        future.cancel(true);
+        System.out.println(future.isCancelled());
+        System.out.println(future.isDone());
+        executor.isShutdown();
     }
 }
