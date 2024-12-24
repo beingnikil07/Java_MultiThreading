@@ -1,8 +1,6 @@
 package com.Executorsframework;
 
 public class Main {
-
-
      //Sabse pehle Time print hoga total,Because you are not waiting for any thread ,To thread to chalegi parallel mai
     // but control chala jaayega aage wait nii karega,if you want that first thread completely executed then after the time
     // will show ,please wait for thread termination using thread.join() method.
